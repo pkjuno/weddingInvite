@@ -1,4 +1,14 @@
-        * {
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.hero::before {
+  max-width: 100%;  /* transform으로 넘치는 걸 조금 보정 */
+}
+
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
