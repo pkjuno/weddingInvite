@@ -141,6 +141,12 @@
         $("#findDestination").click(function(){
             window.open(kakaoMapUrl);
         });
+
+        //지도 약도 클릭이벤트
+        $(".btnMap").click(function(e){
+            console.log("111111111111111111111");
+            console.log($(this).prop("id"));
+        })
     });
     </script>
 </head>
@@ -194,12 +200,21 @@
 
     <section class="location">
         <h2 class="section-title">오시는 길</h2>
-        <div id="map" class="map-container">
-
+        <div class="names" style=" display: flex; flex-direction : row; justify-content: space-between;">
+            <div id="btnMap"    class="groom btnMap" style="width: 45%; text-align: center;">지도</div>
+            <div id="btnSketch" class="bride btnMap" style="width: 45%; text-align: center;">약도</div>
         </div>
+        <div class="test">
+            <div id="map" class="map-container">
+
+            </div>
+            <div id="map2" class="map-container" style="display: none;">
+
+            </div>
         <!--<div class="map-container">
             <button class="map-btn" onclick="window.open('https://map.kakao.com/?q=상암월드컵컨벤션')">카카오맵으로 길찾기</button>
         </div> !-->
+        </div>
         <div class="transport-grid">
             <div class="transport-card">
                 <div class="venue-name">상암 월드컵 컨벤션</div>
