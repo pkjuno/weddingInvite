@@ -15,8 +15,7 @@
         var lat = "37.56842026526049";
         var lng = "126.89614545179921";
 
-        var kakaoMapUrl = "https://map.kakao.com/link/to/" + destination + ","+ lat + "," + lng;
-
+        var kakaoMapUrl = "https://map.kakao.com/?urlX="+lat+"&urlY="+lng+"&itemId=0&q="+destination;
         $(function() {
              // DOM 준비되면 실행
             var images = [
