@@ -123,7 +123,11 @@
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
 
+        // 공유하기 클릭 이벤트
+        $("#shareKakao").click(function(){
+            shareKakao();
         });
+    });
     </script>
 </head>
 <body>
@@ -253,11 +257,11 @@
                 <button class="copy-btn" onclick="copyAcc('3333-01-1234567', this)">복사</button>
             </div>
             <div class="account-item">
-                <div><div class="account-owner">신랑 부 박철수</div><div class="account-num">국민은행 123-456-789012</div></div>
+                <div><div class="account-owner">신랑 부 박정운</div><div class="account-num">국민은행 123-456-789012</div></div>
                 <button class="copy-btn" onclick="copyAcc('123-456-789012', this)">복사</button>
             </div>
             <div class="account-item">
-                <div><div class="account-owner">신랑 모 최영희</div><div class="account-num">신한은행 110-123-456789</div></div>
+                <div><div class="account-owner">신랑 모 정현숙</div><div class="account-num">신한은행 110-123-456789</div></div>
                 <button class="copy-btn" onclick="copyAcc('110-123-456789', this)">복사</button>
             </div>
             <div class="account-item">
@@ -265,11 +269,11 @@
                 <button class="copy-btn" onclick="copyAcc('1000-1234-5678', this)">복사</button>
             </div>
             <div class="account-item">
-                <div><div class="account-owner">신부 부 김민수</div><div class="account-num">우리은행 1002-123-456789</div></div>
+                <div><div class="account-owner">신부 부 김윤석</div><div class="account-num">우리은행 1002-123-456789</div></div>
                 <button class="copy-btn" onclick="copyAcc('1002-123-456789', this)">복사</button>
             </div>
             <div class="account-item">
-                <div><div class="account-owner">신부 모 이선미</div><div class="account-num">NH농협 352-1234-5678-90</div></div>
+                <div><div class="account-owner">신부 모 강명숙</div><div class="account-num">NH농협 352-1234-5678-90</div></div>
                 <button class="copy-btn" onclick="copyAcc('352-1234-5678-90', this)">복사</button>
             </div>
         </div>
@@ -278,7 +282,7 @@
     <section class="share-section">
         <h2 class="section-title">초대장 공유하기</h2>
         <div class="share-btns">
-            <button class="btn" onclick="shareKakao()">카카오톡 공유</button>
+            <button class="btn" id="shareKakao">카카오톡 공유</button>
             <button class="btn" onclick="copyLink()">링크 복사</button>
         </div>
     </section>
