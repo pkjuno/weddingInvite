@@ -107,11 +107,22 @@
         var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
         
         var options = { //지도를 생성할 때 필요한 기본 옵션
-            center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+            center: new kakao.maps.LatLng(37.56842026526049, 126.89614545179921), //지도의 중심좌표.
             level: 3 //지도의 레벨(확대, 축소 정도)
         };
 
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(37.56842026526049, 126.89614545179921); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
         var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
         });
     </script>
 </head>
@@ -173,11 +184,9 @@
         </div> !-->
         <div class="transport-grid">
             <div class="transport-card">
-                <button class="map-btn" onclick="window.open('https://map.kakao.com/?q=상암월드컵컨벤션')">카카오맵으로 길찾기</button>
-            </div>
-            <div class="transport-card">
                 <div class="venue-name">상암 월드컵 컨벤션</div>
                 <div class="venue-detail">임페리얼 홀<br>서울특별시 마포구 월드컵북로 402</div>
+                <button class="map-btn" onclick="window.open('https://map.kakao.com/?q=상암월드컵컨벤션')">카카오맵으로 길찾기</button>
             </div>
             <div class="transport-card">
                 <div class="transport-title">🚇 지하철</div>
