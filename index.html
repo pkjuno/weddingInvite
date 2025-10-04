@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="./scripts/jquery-3.7.1.min.js"></script>
     <script>
+        var destination = encodeURIComponent("상암월드컵컨벤션,37.56842026526049, 126.89614545179921");
+        
+        var kakaoMapUrl = "https://map.kakao.com/link/to/" + destination;
+        
         $(function() {
              // DOM 준비되면 실행
             var images = [
@@ -193,7 +197,7 @@
             <div class="transport-card">
                 <div class="venue-name">상암 월드컵 컨벤션</div>
                 <div class="venue-detail">임페리얼 홀<br>서울특별시 마포구 월드컵북로 402</div>
-                <button class="map-btn" onclick="window.open('https://map.kakao.com/link/to/상암월드컵컨벤션,37.56842026526049, 126.89614545179921')">카카오맵으로 길찾기</button>
+                <button class="map-btn" onclick="window.open(kakaoMapUrl)">카카오맵으로 길찾기</button>
                 <!-- https://map.kakao.com/link/to/카카오판교아지트,37.3952969470752,127.110449292622-->
             </div>
             <div class="transport-card">
