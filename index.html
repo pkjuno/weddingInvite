@@ -146,6 +146,15 @@
         $(".btnMap").click(function(e){
             console.log("111111111111111111111");
             console.log($(this).prop("id"));
+            var targetId = $(this).prop("id");
+            
+            if(targetId == "btnMap"){
+                $("#map").show();
+                $("#map2").hide();
+            }else if (targetId =="btnSketch"){
+                $("#map2").show();
+                $("#map").hide();
+            }
         })
     });
     </script>
