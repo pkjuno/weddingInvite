@@ -144,8 +144,6 @@
 
         //지도 약도 클릭이벤트
         $(".btnMap").click(function(e){
-            console.log("111111111111111111111");
-            console.log($(this).prop("id"));
             var targetId = $(this).prop("id");
             
             if(targetId == "btnMap"){
@@ -221,7 +219,7 @@
             <div id="map" class="map-container">
 
             </div>
-            <div id="map2" class="map-container" style="display: none; width:100%; height:400px; background-image: url('./images/sketch.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+            <div id="map2" class="map-container" style="display: none; position: relative; overflow: hidden; background-image: url('./images/sketch.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;">
             </div>
         <!--<div class="map-container">
             <button class="map-btn" onclick="window.open('https://map.kakao.com/?q=상암월드컵컨벤션')">카카오맵으로 길찾기</button>
