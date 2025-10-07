@@ -151,12 +151,12 @@
             if(targetId == "btnMap"){
                 $("#map").show();
                 $("#map2").hide();
-                targetId.css("background-color", "#ffe4c4");
+                $("#"+targetId).css("background-color", "#ffe4c4");
                 $("#btnSketch").css("background-color", "#FFFFFF");
             }else if (targetId =="btnSketch"){
                 $("#map2").show();
                 $("#map").hide();
-                targetId.css("background-color", "#ffe4c4");
+                $("#"+targetId).css("background-color", "#ffe4c4");
                 $("#btnMap").css("background-color", "#FFFFFF");
             }
         })
