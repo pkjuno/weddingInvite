@@ -175,7 +175,7 @@
             <div class="date-info">
                 <p>2026년 3월 15일 일요일</p>
                 <p class="date-main">오후 1시 50분</p>
-                <p>상암 월드컵 컨벤션 임페리얼 홀</p>
+                <p>상암 월드컵 컨벤션 임페리얼볼룸 홀</p>
             </div>
         </div>
     </section>
@@ -186,9 +186,16 @@
             <p>서로가 마주보며 다져온 사랑을<br>이제 함께 한 곳을 바라보며<br>걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br><br>저희 두 사람이 사랑의 이름으로<br>지켜나갈 수 있도록<br>앞날을 축복해 주시면 감사하겠습니다.</p>
         </div>
         <div class="parents-info">
-            <div class="parent-item">
-                <div class="parent-label">아버지 박정운 · 어머니 정현숙의 장남</div>
-                <div class="parent-name">박준호</div>
+            <div class="parent-item" style="display: flex; justify-content: center;">
+                <div class="parent-label" style="width: 20%; align-content: center; padding-left: 2%;">
+                    <span>아버지 박정운</span>
+                    <br>
+                    <span>어머니 정현숙</span>
+                </div>
+                <div>
+                    <span>·</span>
+                </div>
+                <div class="parent-name" style="align-content: center; padding-left: 8%; font-size: 20px; color: black;">의 장남 박준호</div>
             </div>
             <div class="parent-item">
                 <div class="parent-label">아버지 김윤석 · 어머니 강명숙의 장녀</div>
@@ -229,12 +236,6 @@
         </div>
         <div class="transport-grid">
             <div class="transport-card">
-                <div class="venue-name">상암 월드컵 컨벤션</div>
-                <div class="venue-detail">임페리얼 홀<br>서울특별시 마포구 월드컵북로 402</div>
-                <button class="map-btn" id="findDestination">카카오맵으로 길찾기</button>
-                <!-- https://map.kakao.com/link/to/카카오판교아지트,37.3952969470752,127.110449292622-->
-            </div>
-            <div class="transport-card">
                 <div class="transport-title">🚇 지하철</div>
                 <div class="transport-desc">6호선 월드컵경기장역 1번 출구<br>도보 5분</div>
             </div>
@@ -245,6 +246,28 @@
             <div class="transport-card">
                 <div class="transport-title">🚗 자가용</div>
                 <div class="transport-desc">건물 내 주차장 이용 가능<br>(3시간 무료)</div>
+            </div>
+            <div class="transport-card">
+                <div class="venue-name">상암 월드컵 컨벤션</div>
+                <div class="venue-detail">임페리얼 홀<br>서울특별시 마포구 월드컵북로 402</div>
+                <button class="map-btn" id="findDestination">카카오맵으로 길찾기</button>
+                <!-- https://map.kakao.com/link/to/카카오판교아지트,37.3952969470752,127.110449292622-->
+                 <div class="link">
+						<ul>
+							<li>
+								<a href="javascript:pcAlert();" class="tmap">티맵</a>
+							</li>
+							<li>
+								<a href="javascript:pcAlert();" class="kakaonavi">카카오내비</a>
+							</li>
+							<li>
+								<a href="javascript:pcAlert();" class="navermap">네이버지도</a>
+							</li>
+							<li>
+								<a href="javascript:pcAlert();" class="kakaomap">카카오맵</a>
+							</li>
+						</ul>
+					</div>
             </div>
         </div>
     </section>
