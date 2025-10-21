@@ -412,15 +412,27 @@
             if (typeof kakao !== 'undefined' && kakao.maps) {
                 var container = document.getElementById('map');
                 var options = {
-                    center: new kakao.maps.LatLng(37.5665, 126.9018),
-                    level: 3
+                    center: new kakao.maps.LatLng(37.56842026526049, 126.89614545179921),
+                    level: 5
                 };
-                var map = new kakao.maps.Map(container, options);
+            // 마커가 표시될 위치입니다 
+            var markerPosition  = new kakao.maps.LatLng(37.56842026526049, 126.89614545179921); 
+            
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+
+            var map = new kakao.maps.Map(container, options);
             }
+
+            marker.setMap(map);
         }
         
         // 길찾기 버튼
         document.getElementById('findDestination').addEventListener('click', function() {
             window.open('https://map.kakao.com/?q=상암월드컵컨벤션', '_blank');
         });
+
+        initMap();
     </script>
