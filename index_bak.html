@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박준호 ❤️ 김보미 결혼합니다</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0d7a6ab65ab7617a12c8b15889e4a2b1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./scripts/jquery-3.7.1.min.js"></script>
+    <script>
+        var destination = encodeURIComponent("상암월드컵컨벤션,37.56842026526049");
+        var lat = "37.56842026526049";
+        var lng = "126.89614545179921";
+
+        var kakaoMapUrl = "https://map.kakao.com/link/to/17807520";
+
+        $(function() {
+            $("#btnMap").css("background-color", "#ffe4c4");
+
+             // DOM 준비되면 실행
+            var images = [
+                'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',
+                'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200',
+                'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200',
+                'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200',
+                'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200',
+                'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200',
+                'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',,
+                'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',
+                'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200'
+            ];
+            
+            var currentIdx = 0;
+            var mainImg = document.getElementById('mainGalleryImg');
+            var thumbsDiv = document.getElementById('galleryThumbs');
+            
+            images.forEach(function(src, i) {
+                var t = document.createElement('div');
+                t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
+                var img = document.createElement('img');
+                img.src = src;
+                img.alt = '사진' + (i+1);
+                t.appendChild(img);
+                t.onclick = function() {
+                    currentIdx = i;
+                    mainImg.src = src;
+                    var thumbs = document.querySelectorAll('.gallery-thumb');
+                    thumbs.forEach(function(th, idx) {
+                        if (idx === i) {
+                            th.classList.add('active');
+                            th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        } else {
+                            th.classList.remove('active');
+                        }
+                    });
+                };
+                thumbsDiv.appendChild(t);
+            });
+            
+            function openModal() {
+                document.getElementById('modal').classList.add('active');
+                document.getElementById('modalImg').src = images[currentIdx];
+            }
+            
+            function closeModal() {
+                document.getElementById('modal').classList.remove('active');
+            }
+            
+            function shareKakao() {
+                if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+                    Kakao.init('0d7a6ab65ab7617a12c8b15889e4a2b1');
+                }
+                if (typeof Kakao !== 'undefined') {
+                    Kakao.Share.sendDefault({
+                        objectType: 'feed',
+                        content: {
+                            title: '박준호 ♥ 김보미 결혼합니다',
+                            description: '2026년 3월 15일 일요일 오후 1시 50분',
+                            imageUrl: images[0],
+                            link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
+                        }
+                    });
+                } else {
+                    alert('카카오톡 공유하기를 사용하려면 카카오 개발자 키가 필요합니다.');
+                }
+            }
+            
+            function copyLink() {
+                navigator.clipboard.writeText(window.location.href).then(function() {
+                    alert('링크가 복사되었습니다! 🔗');
+                });
+            }
+            
+            function copyAcc(num, btn) {
+                navigator.clipboard.writeText(num).then(function() {
+                    btn.textContent = '완료!';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        btn.textContent = '복사';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+            
+            function tel(num) {
+                window.location.href = 'tel:' + num;
+            }
+            
+            function sms(num) {
+                window.location.href = 'sms:' + num;
+            }
+
+
+        //MAPS
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(37.56842026526049, 126.89614545179921), //지도의 중심좌표.
+            level: 5 //지도의 레벨(확대, 축소 정도)
+        };
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(37.56842026526049, 126.89614545179921); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+        // 공유하기 클릭 이벤트
+        $("#shareKakao").click(function(){
+            shareKakao();
+        });
+
+        //길찾기 클릭 이벤트
+        $("#findDestination").click(function(){
+            window.open(kakaoMapUrl);
+        });
+
+        //지도 약도 클릭이벤트
+        $(".btnMap").click(function(e){
+            var targetId = $(this).prop("id");
+            
+            if(targetId == "btnMap"){
+                $("#map").show();
+                $("#map2").hide();
+                $("#"+targetId).css("background-color", "#ffe4c4");
+                $("#btnSketch").css("background-color", "#FFFFFF");
+            }else if (targetId =="btnSketch"){
+                $("#map2").show();
+                $("#map").hide();
+                $("#"+targetId).css("background-color", "#ffe4c4");
+                $("#btnMap").css("background-color", "#FFFFFF");
+            }
+        })
+    });
+    </script>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WEDDING INVITATION</h1>
+            <div class="names">
+                <span class="groom">박준호</span>
+                <span class="heart-icon">♥</span>
+                <span class="bride">김보미</span>
+            </div>
+            <div class="date-info">
+                <p>2026년 3월 15일 일요일</p>
+                <p class="date-main">오후 1시 50분</p>
+                <p>상암 월드컵 컨벤션 임페리얼볼룸 홀</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="invitation">
+        <h2 class="section-title">초대합니다</h2>
+        <div class="invitation-text">
+            <p>서로가 마주보며 다져온 사랑을<br>이제 함께 한 곳을 바라보며<br>걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br><br>저희 두 사람이 사랑의 이름으로<br>지켜나갈 수 있도록<br>앞날을 축복해 주시면 감사하겠습니다.</p>
+        </div>
+        <div class="parents-info">
+            <div class="parent-item" style="display: flex; justify-content: center;">
+                <div class="parent-label">
+                    <span>아버지 박정운</span>
+                    <br>
+                    <span>어머니 정현숙</span>
+                </div>
+                <div class="parent-label" style="align-content: center; padding-left: 3%;">
+                    <span>의 장남</span>
+                </div>
+                <div class="parent-label" style="align-content: center; padding-left: 5%; font-size: 1.5rem; color: black;">박준호</div>
+            </div>
+            <div class="parent-item" style="display: flex; justify-content: center;">
+                <div class="parent-label">
+                    <span>아버지 김윤석</span>
+                    <br>
+                    <span>어머니 강명숙</span>
+                </div>
+                <div class="parent-label" style="align-content: center; padding-left: 3%;">
+                    <span>의 장녀</span>
+                </div>
+                <div class="parent-label" style="align-content: center; padding-left: 5%; font-size: 1.5rem; color: black;">김보미</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-main-image" onclick="openModal()">
+            <img id="mainGalleryImg" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200" alt="Wedding">
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+        <p style="text-align: center; color: #999; font-size: 0.85rem; margin-top: 1rem;">💡 사진을 클릭하면 크게 볼 수 있습니다</p>
+    </section>
+
+    <div class="modal" id="modal" onclick="closeModal()">
+        <span class="modal-close">×</span>
+        <img id="modalImg" src="" alt="확대">
+    </div>
+
+    <section class="location">
+        <h2 class="section-title">오시는 길</h2>
+        <div class="names" style=" display: flex; flex-direction : row; justify-content: space-between;">
+            <div id="btnMap"    class="groom btnMap" style="width: 45%; text-align: center;">지도</div>
+            <div id="btnSketch" class="bride btnMap" style="width: 45%; text-align: center;">약도</div>
+        </div>
+        <div class="test">
+            <div id="map" class="map-container">
+
+            </div>
+            <div id="map2" class="map-container" style="display: none; position: relative; overflow: hidden; background-image: url('./images/sketch.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+            </div>
+        <!--<div class="map-container">
+            <button class="map-btn" onclick="window.open('https://map.kakao.com/?q=상암월드컵컨벤션')">카카오맵으로 길찾기</button>
+        </div> !-->
+        </div>
+        <div class="transport-grid">
+            <div class="transport-card">
+                <div class="transport-title">🚇 지하철</div>
+                <div class="transport-desc">6호선 월드컵경기장역 1번 출구<br>도보 5분</div>
+            </div>
+            <div class="transport-card">
+                <div class="transport-title">🚌 버스</div>
+                <div class="transport-desc">월드컵경기장 정류장 하차<br>271, 710, 720</div>
+            </div>
+            <div class="transport-card">
+                <div class="transport-title">🚗 자가용</div>
+                <div class="transport-desc">건물 내 주차장 이용 가능<br>(3시간 무료)</div>
+            </div>
+            <div class="transport-card">
+                <div class="venue-name">상암 월드컵 컨벤션</div>
+                <div class="venue-detail">임페리얼 홀<br>서울특별시 마포구 월드컵북로 402</div>
+                <button class="map-btn" id="findDestination">카카오맵으로 길찾기</button>
+                <!-- https://map.kakao.com/link/to/카카오판교아지트,37.3952969470752,127.110449292622-->
+                 <div class="link">
+						<ul>
+							<li>
+								<a href="javascript:pcAlert();" class="tmap">티맵</a>
+							</li>
+							<li>
+								<a href="javascript:pcAlert();" class="kakaonavi">카카오내비</a>
+							</li>
+							<li>
+								<a href="javascript:pcAlert();" class="navermap">네이버지도</a>
+							</li>
+							<li>
+								<a href="javascript:pcAlert();" class="kakaomap">카카오맵</a>
+							</li>
+						</ul>
+					</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2 class="section-title">연락하기</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-side">GROOM</div>
+                <div class="contact-person">
+                    <div class="contact-name">신랑 박준호</div>
+                    <div class="contact-btns">
+                        <button class="icon-btn" onclick="tel('01099259541')">📞</button>
+                        <button class="icon-btn" onclick="sms('01099259541')">💬</button>
+                    </div>
+                </div>
+                <div class="contact-person">
+                    <div class="contact-name" style="font-size: 0.95rem;">아버지 박정운</div>
+                    <div class="contact-btns"><button class="icon-btn" onclick="tel('01011111111')">📞</button></div>
+                </div>
+                <div class="contact-person">
+                    <div class="contact-name" style="font-size: 0.95rem;">어머니 정현숙</div>
+                    <div class="contact-btns"><button class="icon-btn" onclick="tel('01022222222')">📞</button></div>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-side">BRIDE</div>
+                <div class="contact-person">
+                    <div class="contact-name">신부 김보미</div>
+                    <div class="contact-btns">
+                        <button class="icon-btn" onclick="tel('01062899700')">📞</button>
+                        <button class="icon-btn" onclick="sms('01062899700')">💬</button>
+                    </div>
+                </div>
+                <div class="contact-person">
+                    <div class="contact-name" style="font-size: 0.95rem;">아버지 김윤석</div>
+                    <div class="contact-btns"><button class="icon-btn" onclick="tel('01033333333')">📞</button></div>
+                </div>
+                <div class="contact-person">
+                    <div class="contact-name" style="font-size: 0.95rem;">어머니 강명숙</div>
+                    <div class="contact-btns"><button class="icon-btn" onclick="tel('01044444444')">📞</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="account">
+        <h2 class="section-title">마음 전하실 곳</h2>
+        <div class="account-list">
+            <div class="account-item">
+                <div><div class="account-owner">신랑 박준호</div><div class="account-num">카카오뱅크 3333-01-1234567</div></div>
+                <button class="copy-btn" onclick="copyAcc('3333-01-1234567', this)">복사</button>
+            </div>
+            <div class="account-item">
+                <div><div class="account-owner">신랑 부 박정운</div><div class="account-num">국민은행 123-456-789012</div></div>
+                <button class="copy-btn" onclick="copyAcc('123-456-789012', this)">복사</button>
+            </div>
+            <div class="account-item">
+                <div><div class="account-owner">신랑 모 정현숙</div><div class="account-num">신한은행 110-123-456789</div></div>
+                <button class="copy-btn" onclick="copyAcc('110-123-456789', this)">복사</button>
+            </div>
+            <div class="account-item">
+                <div><div class="account-owner">신부 김보미</div><div class="account-num">토스뱅크 1000-1234-5678</div></div>
+                <button class="copy-btn" onclick="copyAcc('1000-1234-5678', this)">복사</button>
+            </div>
+            <div class="account-item">
+                <div><div class="account-owner">신부 부 김윤석</div><div class="account-num">우리은행 1002-123-456789</div></div>
+                <button class="copy-btn" onclick="copyAcc('1002-123-456789', this)">복사</button>
+            </div>
+            <div class="account-item">
+                <div><div class="account-owner">신부 모 강명숙</div><div class="account-num">NH농협 352-1234-5678-90</div></div>
+                <button class="copy-btn" onclick="copyAcc('352-1234-5678-90', this)">복사</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="share-section">
+        <h2 class="section-title">초대장 공유하기</h2>
+        <div class="share-btns">
+            <button class="btn" id="shareKakao">카카오톡 공유</button>
+            <button class="btn" onclick="copyLink()">링크 복사</button>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-names">박준호 ♥ 김보미</p>
+        <p>2026. 03. 15</p>
+    </footer>
+</body>
+</html>
