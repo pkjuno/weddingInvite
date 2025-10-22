@@ -189,3 +189,71 @@ document.getElementById('findDestination').addEventListener('click', function() 
 });
 
 initMap();
+
+// ============================================
+// BGM (Background Music) 기능
+// ============================================
+
+// BGM 음악 파일 경로를 여기에 설정하세요
+// 예시: var bgmSound = new Howl({ src: ['music/wedding-bgm.mp3'], ... });
+var bgmSound = null;
+var isBgmPlaying = false;
+
+// Howler.js를 사용한 BGM 초기화
+// 음악 파일이 준비되면 아래 주석을 해제하고 경로를 수정하세요
+/*
+bgmSound = new Howl({
+    src: ['music/wedding-bgm.mp3'],  // 음악 파일 경로 (music 폴더에 파일 추가 필요)
+    loop: true,                       // 반복 재생
+    volume: 0.5,                      // 볼륨 (0.0 ~ 1.0)
+    onload: function() {
+        console.log('BGM 로드 완료');
+    },
+    onloaderror: function(id, error) {
+        console.error('BGM 로드 실패:', error);
+    }
+});
+*/
+
+// BGM 컨트롤 버튼 클릭 이벤트
+document.getElementById('bgmBtn').addEventListener('click', function() {
+    // 음악 파일이 설정되지 않은 경우 안내 메시지
+    if (!bgmSound) {
+        alert('BGM 음악 파일이 설정되지 않았습니다.\n\n설정 방법:\n1. music 폴더에 음악 파일 추가\n2. scripts/main.js 파일에서 BGM 코드 주석 해제\n3. 파일 경로 수정');
+        return;
+    }
+
+    var btn = document.getElementById('bgmBtn');
+
+    if (isBgmPlaying) {
+        // 음악 정지
+        bgmSound.pause();
+        btn.classList.remove('playing');
+        btn.classList.add('paused');
+        isBgmPlaying = false;
+    } else {
+        // 음악 재생
+        bgmSound.play();
+        btn.classList.add('playing');
+        btn.classList.remove('paused');
+        isBgmPlaying = true;
+    }
+});
+
+// 페이지 로드 시 자동 재생 (선택사항)
+// 주의: 최신 브라우저는 사용자 인터랙션 없이 자동 재생을 차단할 수 있습니다
+/*
+window.addEventListener('load', function() {
+    if (bgmSound) {
+        // 사용자가 페이지를 클릭하면 자동 재생 시작
+        document.body.addEventListener('click', function autoplay() {
+            if (!isBgmPlaying) {
+                bgmSound.play();
+                document.getElementById('bgmBtn').classList.add('playing');
+                isBgmPlaying = true;
+            }
+            document.body.removeEventListener('click', autoplay);
+        }, { once: true });
+    }
+});
+*/
