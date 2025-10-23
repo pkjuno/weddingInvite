@@ -184,9 +184,9 @@ function initMap() {
 }
 
 // 길찾기 버튼
-document.getElementById('findDestination').addEventListener('click', function() {
-    window.open('https://map.kakao.com/?q=상암월드컵컨벤션', '_blank');
-});
+//document.getElementById('findDestination').addEventListener('click', function() {
+  //  window.open('https://map.kakao.com/?q=상암월드컵컨벤션', '_blank');
+//});
 
 initMap();
 
