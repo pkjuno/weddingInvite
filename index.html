@@ -103,14 +103,34 @@
             </div>
             <div class="transport-card">
                 <div class="venue-name">상암 월드컵 컨벤션</div>
-                <div class="venue-detail">임페리얼 홀<br>서울특별시 마포구 월드컵북로 240 2층(성산동 서울월드컵경기장 서측)</div>
-                <button class="map-btn" id="findDestination">카카오맵으로 길찾기</button>
+                <div class="venue-detail">임페리얼 볼룸 홀<br>서울특별시 마포구 월드컵북로 240 2층<br>(성산동 서울월드컵경기장 서측)</div>
+                <!--<button class="map-btn" id="findDestination">카카오맵으로 길찾기</button> !-->
                 <div class="link">
-                    <ul style="display: flex; list-style: none; gap: 0.5rem; padding: 0; margin-top: 1rem;">
-                        <li style="flex: 1;"><a href="javascript:void(0);" class="tmap" style="display: block; padding: 0.75rem; background: #f0f0f0; text-align: center; border-radius: 8px; text-decoration: none; color: #666;">티맵</a></li>
-                        <li style="flex: 1;"><a href="javascript:void(0);" class="kakaonavi" style="display: block; padding: 0.75rem; background: #f0f0f0; text-align: center; border-radius: 8px; text-decoration: none; color: #666;">카카오내비</a></li>
-                        <li style="flex: 1;"><a href="javascript:void(0);" class="navermap" style="display: block; padding: 0.75rem; background: #f0f0f0; text-align: center; border-radius: 8px; text-decoration: none; color: #666;">네이버지도</a></li>
-                        <li style="flex: 1;"><a href="javascript:void(0);" class="kakaomap" style="display: block; padding: 0.75rem; background: #f0f0f0; text-align: center; border-radius: 8px; text-decoration: none; color: #666;">카카오맵</a></li>
+                    <ul style="display: flex; list-style: none; gap: 1rem; padding: 0; margin-top: 1rem; justify-content: center;">
+                        <li style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <a href="javascript:void(0);" class="tmap" style="display: block; width: 60px; height: 60px; border-radius: 50%; background: #f0f0f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                                <img src="images/tMap.svg" alt="티맵" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                            <span style="font-size: 0.75rem; color: #a8c8a8;">티맵</span>
+                        </li>
+                        <!--<li style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <a href="javascript:void(0);" class="kakaonavi" style="display: block; width: 60px; height: 60px; border-radius: 50%; background: #f0f0f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                                <img src="images/kakaonavi-icon.png" alt="카카오내비" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                            <span style="font-size: 0.75rem; color: #a8c8a8;">카카오내비</span>
+                        </li> !-->
+                        <li style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <a href="javascript:void(0);" class="navermap" style="display: block; width: 60px; height: 60px; border-radius: 50%; background: #f0f0f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                                <img src="images/nMap.png" alt="네이버지도" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                            <span style="font-size: 0.75rem; color: #a8c8a8;">네이버지도</span>
+                        </li>
+                        <li style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <a href="javascript:void(0);" class="kakaomap" style="display: block; width: 60px; height: 60px; border-radius: 50%; background: #f0f0f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                                <img src="images/kMap.png" alt="카카오맵" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                            <span style="font-size: 0.75rem; color: #a8c8a8;">카카오맵</span>
+                        </li>
                     </ul>
                 </div>
             </div>
