@@ -95,9 +95,6 @@ section { padding: 5rem 2rem; max-width: 800px; margin: 0 auto; }
 footer { text-align: center; padding: 4rem 2rem; background: #1a2e1a; color: #6b8e6b; font-size: 0.9rem; border-top: 1px solid rgba(144, 238, 144, 0.1); }
 footer p { margin: 0.5rem 0; }
 .footer-names { font-size: 1.1rem; color: #8fbc8f; margin-bottom: 1rem; }
-<<<<<<< HEAD
-@media (max-width: 640px) { .names { font-size: 2rem; } .contact-grid { grid-template-columns: 1fr; } section { padding: 3rem 1.5rem; } .dday-boxes { gap: 0.5rem; } .dday-box { padding: 0.75rem; } .dday-number { font-size: 1.5rem; } .modal-nav { width: 45px; height: 45px; font-size: 3rem; } .modal-prev { left: 1rem; } .modal-next { right: 1rem; } .modal-counter { font-size: 0.9rem; bottom: 1.5rem; padding: 0.4rem 1rem; } }
-=======
 /* BGM 컨트롤 버튼 */
 .bgm-control { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; border-radius: 50%; background: rgba(107, 142, 107, 0.9); border: 2px solid rgba(255, 255, 255, 0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; z-index: 999; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
 .bgm-control:hover { background: rgba(107, 142, 107, 1); transform: scale(1.1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); }
@@ -105,4 +102,3 @@ footer p { margin: 0.5rem 0; }
 .bgm-control.paused { opacity: 0.6; }
 @keyframes pulse { 0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); } 50% { box-shadow: 0 4px 25px rgba(107, 142, 107, 0.6); } }
 @media (max-width: 640px) { .names { font-size: 2rem; } .contact-grid { grid-template-columns: 1fr; } section { padding: 3rem 1.5rem; } .dday-boxes { gap: 0.5rem; } .dday-box { padding: 0.75rem; } .dday-number { font-size: 1.5rem; } .modal-nav { width: 45px; height: 45px; font-size: 3rem; } .modal-prev { left: 1rem; } .modal-next { right: 1rem; } .modal-counter { font-size: 0.9rem; bottom: 1.5rem; padding: 0.4rem 1rem; } .bgm-control { width: 50px; height: 50px; bottom: 1.5rem; right: 1.5rem; font-size: 1.2rem; } }
->>>>>>> origin/claude/placeholder-011CUMG4oBjkBH4cj3th9c8C

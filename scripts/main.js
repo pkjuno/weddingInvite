@@ -189,8 +189,6 @@ document.getElementById('findDestination').addEventListener('click', function() 
 });
 
 initMap();
-<<<<<<< HEAD
-=======
 
 // ============================================
 // BGM (Background Music) 기능
@@ -259,4 +257,4 @@ window.addEventListener('load', function() {
     }
 });
 */
->>>>>>> origin/claude/placeholder-011CUMG4oBjkBH4cj3th9c8C
+
