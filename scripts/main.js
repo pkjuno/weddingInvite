@@ -216,29 +216,29 @@ bgmSound = new Howl({
 */
 
 // BGM 컨트롤 버튼 클릭 이벤트
-document.getElementById('bgmBtn').addEventListener('click', function() {
-    // 음악 파일이 설정되지 않은 경우 안내 메시지
-    if (!bgmSound) {
-        alert('BGM 음악 파일이 설정되지 않았습니다.\n\n설정 방법:\n1. music 폴더에 음악 파일 추가\n2. scripts/main.js 파일에서 BGM 코드 주석 해제\n3. 파일 경로 수정');
-        return;
-    }
+            //document.getElementById('bgmBtn').addEventListener('click', function() {
+            //    // 음악 파일이 설정되지 않은 경우 안내 메시지
+            //   if (!bgmSound) {
+            //        alert('BGM 음악 파일이 설정되지 않았습니다.\n\n설정 방법:\n1. music 폴더에 음악 파일 추가\n2. scripts/main.js 파일에서 BGM 코드 주석 해제\n3. 파일 경로 수정');
+            //        return;
+            //    }
+//
+            //    var btn = document.getElementById('bgmBtn');
 
-    var btn = document.getElementById('bgmBtn');
-
-    if (isBgmPlaying) {
-        // 음악 정지
-        bgmSound.pause();
-        btn.classList.remove('playing');
-        btn.classList.add('paused');
-        isBgmPlaying = false;
-    } else {
-        // 음악 재생
-        bgmSound.play();
-        btn.classList.add('playing');
-        btn.classList.remove('paused');
-        isBgmPlaying = true;
-    }
-});
+           //     if (isBgmPlaying) {
+           //         // 음악 정지
+           //         bgmSound.pause();
+            //        btn.classList.remove('playing');
+            //        btn.classList.add('paused');
+          //          isBgmPlaying = false;
+            //    } else {
+           //         // 음악 재생
+           //        bgmSound.play();
+           //         btn.classList.add('playing');
+           //         btn.classList.remove('paused');
+            //        isBgmPlaying = true;
+            //    }
+          //  });
 
 // 페이지 로드 시 자동 재생 (선택사항)
 // 주의: 최신 브라우저는 사용자 인터랙션 없이 자동 재생을 차단할 수 있습니다
