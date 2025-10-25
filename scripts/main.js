@@ -233,7 +233,7 @@ tmapLinks.forEach(function(link) {
 });
 
 $("#findDestination_kakao").click(function(){
-    window.open('https://map.kakao.com/?q=상암월드컵컨벤션', '_blank');
+    window.open('https://map.kakao.com/?q='+encodeURIComponent(destination.name), '_blank');
 })
 // 카카오맵 길찾기
 // var kakaomapLinks = document.querySelectorAll('.kakaomap');
