@@ -190,8 +190,7 @@ $("#findDestination_kakao").click(function(){
 
 initMap();
 
-<<<<<<< HEAD
-=======
+
 // ============================================
 // 네비게이션 앱 연동
 // ============================================
@@ -233,38 +232,17 @@ tmapLinks.forEach(function(link) {
     });
 });
 
-// 카카오내비 길찾기
-var kakaonaviLinks = document.querySelectorAll('.kakaonavi');
-kakaonaviLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        // 카카오내비 URL Scheme (모바일 앱)
-        var kakaoNaviUrl = 'kakaonavi://route?ep=' + destination.lng + ',' + destination.lat +
-                           '&ename=' + encodeURIComponent(destination.name);
-
-        // 앱 실행 시도, 실패시 웹 페이지로 이동
-        window.location.href = kakaoNaviUrl;
-        setTimeout(function() {
-            // 앱이 설치되지 않은 경우 카카오내비 안내 페이지로 이동
-            window.open('https://kakaonavi.kakao.com', '_blank');
-        }, 1500);
-    });
-});
-
+$("#findDestination_kakao").click(function(){
+    window.open('https://map.kakao.com/?q=상암월드컵컨벤션', '_blank');
+})
 // 카카오맵 길찾기
-var kakaomapLinks = document.querySelectorAll('.kakaomap');
-kakaomapLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        // 카카오맵 웹 URL
-        var kakaoMapUrl = 'https://map.kakao.com/link/to/' + encodeURIComponent(destination.name) +
-                          ',' + destination.lat + ',' + destination.lng;
-        window.open(kakaoMapUrl, '_blank');
-    });
-});
-
-// ============================================
-// BGM (Background Music) 기능
-// ============================================
->>>>>>> 25880ef (네비게이션 앱 길찾기 기능 추가)
-
+// var kakaomapLinks = document.querySelectorAll('.kakaomap');
+// kakaomapLinks.forEach(function(link) {
+//     link.addEventListener('click', function(e) {
+//         e.preventDefault();
+//         // 카카오맵 웹 URL
+//         var kakaoMapUrl = 'https://map.kakao.com/link/to/' + encodeURIComponent(destination.name) +
+//                           ',' + destination.lat + ',' + destination.lng;
+//         window.open(kakaoMapUrl, '_blank');
+//     });
+// });
