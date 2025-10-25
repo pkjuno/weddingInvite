@@ -196,8 +196,8 @@ initMap();
 
 // BGM 음악 파일 경로를 여기에 설정하세요
 // 예시: var bgmSound = new Howl({ src: ['music/wedding-bgm.mp3'], ... });
-var bgmSound = null;
-var isBgmPlaying = false;
+// var bgmSound = null;
+// var isBgmPlaying = false;
 
 // Howler.js를 사용한 BGM 초기화
 // 음악 파일이 준비되면 아래 주석을 해제하고 경로를 수정하세요
@@ -215,6 +215,7 @@ bgmSound = new Howl({
 });
 */
 
+/*
 // BGM 컨트롤 버튼 클릭 이벤트
             //document.getElementById('bgmBtn').addEventListener('click', function() {
             //    // 음악 파일이 설정되지 않은 경우 안내 메시지
@@ -225,6 +226,7 @@ bgmSound = new Howl({
 //
             //    var btn = document.getElementById('bgmBtn');
 
+<<<<<<< HEAD
            //     if (isBgmPlaying) {
            //         // 음악 정지
            //         bgmSound.pause();
@@ -239,6 +241,25 @@ bgmSound = new Howl({
             //        isBgmPlaying = true;
             //    }
           //  });
+=======
+    var btn = document.getElementById('bgmBtn');
+
+    if (isBgmPlaying) {
+        // 음악 정지
+        bgmSound.pause();
+        btn.classList.remove('playing');
+        btn.classList.add('paused');
+        isBgmPlaying = false;
+    } else {
+        // 음악 재생
+        bgmSound.play();
+        btn.classList.add('playing');
+        btn.classList.remove('paused');
+        isBgmPlaying = true;
+    }
+});
+*/
+>>>>>>> origin/claude/placeholder-011CUMG4oBjkBH4cj3th9c8C
 
 // 페이지 로드 시 자동 재생 (선택사항)
 // 주의: 최신 브라우저는 사용자 인터랙션 없이 자동 재생을 차단할 수 있습니다
