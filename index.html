@@ -40,7 +40,6 @@
             </div>
         </div>
     </section>
-
     <div class="main-content-wrapper">
     <section class="invitation">
         <h2 class="section-title">초대합니다</h2>
@@ -106,6 +105,7 @@
             <div class="transport-card">
                 <div class="transport-title">🚗 자차</div>
                 <div class="transport-desc">월드컵경기장 서측 1,2주차장 90분 무료<br>(홈플러스 주차장 무료주차 불가)</div>
+                <div class="transport-desc"><br>네비에 '상암 월드컵 컨벤션' 검색</div>
             </div>
             <div class="transport-card">
                 <div class="venue-name">상암 월드컵 컨벤션</div>
@@ -132,7 +132,7 @@
                             <span style="font-size: 0.75rem; color: #a8c8a8;">네이버지도</span>
                         </li>
                         <li style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                            <a href="javascript:void(0);" class="kakaomap" style="display: block; width: 60px; height: 60px; border-radius: 50%; background: #f0f0f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                            <a href="javascript:void(0);" id="findeDestination_kakao" class="kakaomap" style="display: block; width: 60px; height: 60px; border-radius: 50%; background: #f0f0f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
                                 <img src="images/kMap.png" alt="카카오맵" style="width: 100%; height: 100%; object-fit: cover;">
                             </a>
                             <span style="font-size: 0.75rem; color: #a8c8a8;">카카오맵</span>
@@ -171,9 +171,9 @@
                 </div>
                 <div class="account-content">
                     <div class="account-items">
-                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">신랑 박준호</div><div class="account-num">카카오뱅크 3333-01-1234567</div></div><button class="copy-btn" onclick="copyAcc('3333-01-1234567', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">신랑 부 박정운</div><div class="account-num">국민은행 123-456-789012</div></div><button class="copy-btn" onclick="copyAcc('123-456-789012', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">신랑 모 정현숙</div><div class="account-num">신한은행 110-123-456789</div></div><button class="copy-btn" onclick="copyAcc('110-123-456789', this)">복사</button></div>
+                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">박정운</div><div class="account-num">국민은행 123-456-789012</div></div><button class="copy-btn" onclick="copyAcc('123-456-789012', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">정현숙</div><div class="account-num">신한은행 110-123-456789</div></div><button class="copy-btn" onclick="copyAcc('110-123-456789', this)">복사</button></div>
+                        <div class="account-item"></div><div><div class="account-owner">신랑 박준호</div><div class="account-num">카카오뱅크 3333-01-1234567</div></div><button class="copy-btn" onclick="copyAcc('3333-01-1234567', this)">복사</button></div>
                     </div>
                 </div>
             </div>
@@ -184,9 +184,9 @@
                 </div>
                 <div class="account-content">
                     <div class="account-items">
-                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">신부 김보미</div><div class="account-num">토스뱅크 1000-1234-5678</div></div><button class="copy-btn" onclick="copyAcc('1000-1234-5678', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">신부 부 김윤석</div><div class="account-num">우리은행 1002-123-456789</div></div><button class="copy-btn" onclick="copyAcc('1002-123-456789', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">신부 모 강명숙</div><div class="account-num">NH농협 352-1234-5678-90</div></div><button class="copy-btn" onclick="copyAcc('352-1234-5678-90', this)">복사</button></div>
+                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">김윤석</div><div class="account-num">우리은행 1002-123-456789</div></div><button class="copy-btn" onclick="copyAcc('1002-123-456789', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">강명숙</div><div class="account-num">NH농협 352-1234-5678-90</div></div><button class="copy-btn" onclick="copyAcc('352-1234-5678-90', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">김보미</div><div class="account-num">토스뱅크 1000-1234-5678</div></div><button class="copy-btn" onclick="copyAcc('1000-1234-5678', this)">복사</button></div>                        
                     </div>
                 </div>
             </div>
