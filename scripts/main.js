@@ -191,6 +191,77 @@ document.getElementById('findDestination').addEventListener('click', function() 
 initMap();
 
 // ============================================
+// 네비게이션 앱 연동
+// ============================================
+
+// 목적지 정보
+var destination = {
+    name: '상암월드컵컨벤션',
+    address: '서울특별시 마포구 월드컵북로 402',
+    lat: 37.56842026526049,
+    lng: 126.89614545179921
+};
+
+// 네이버지도 길찾기
+var navermapLinks = document.querySelectorAll('.navermap');
+navermapLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 네이버지도 웹 URL (모바일/PC 모두 지원)
+        var naverUrl = 'https://map.naver.com/v5/search/' + encodeURIComponent(destination.name);
+        window.open(naverUrl, '_blank');
+    });
+});
+
+// 티맵 길찾기
+var tmapLinks = document.querySelectorAll('.tmap');
+tmapLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 티맵 URL Scheme (모바일 앱)
+        var tmapUrl = 'tmap://route?goalname=' + encodeURIComponent(destination.name) +
+                      '&goalx=' + destination.lng + '&goaly=' + destination.lat;
+
+        // 앱 실행 시도, 실패시 웹 페이지로 이동
+        window.location.href = tmapUrl;
+        setTimeout(function() {
+            // 앱이 설치되지 않은 경우 티맵 웹사이트로 이동
+            window.open('https://www.tmap.co.kr', '_blank');
+        }, 1500);
+    });
+});
+
+// 카카오내비 길찾기
+var kakaonaviLinks = document.querySelectorAll('.kakaonavi');
+kakaonaviLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 카카오내비 URL Scheme (모바일 앱)
+        var kakaoNaviUrl = 'kakaonavi://route?ep=' + destination.lng + ',' + destination.lat +
+                           '&ename=' + encodeURIComponent(destination.name);
+
+        // 앱 실행 시도, 실패시 웹 페이지로 이동
+        window.location.href = kakaoNaviUrl;
+        setTimeout(function() {
+            // 앱이 설치되지 않은 경우 카카오내비 안내 페이지로 이동
+            window.open('https://kakaonavi.kakao.com', '_blank');
+        }, 1500);
+    });
+});
+
+// 카카오맵 길찾기
+var kakaomapLinks = document.querySelectorAll('.kakaomap');
+kakaomapLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 카카오맵 웹 URL
+        var kakaoMapUrl = 'https://map.kakao.com/link/to/' + encodeURIComponent(destination.name) +
+                          ',' + destination.lat + ',' + destination.lng;
+        window.open(kakaoMapUrl, '_blank');
+    });
+});
+
+// ============================================
 // BGM (Background Music) 기능
 // ============================================
 
