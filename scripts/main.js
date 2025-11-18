@@ -325,6 +325,7 @@ kakaomapLinks.forEach(function(link) {
 $(document).ready(function() {
     var bgmSound = null;
     var isBgmPlaying = false;
+    var autoplayAttempted = false;
 
     // Howler.js를 사용한 BGM 초기화
     bgmSound = new Howl({
@@ -333,20 +334,35 @@ $(document).ready(function() {
         volume: 0.5,              // 볼륨 (0.0 ~ 1.0)
         onload: function() {
             console.log('BGM 로드 완료');
-            // 자동 재생 시작
-            bgmSound.play();
-            isBgmPlaying = true;
-            $('#bgmBtn').addClass('playing').removeClass('paused');
-            console.log('BGM 자동 재생 시작');
         },
         onloaderror: function(id, error) {
             console.error('BGM 로드 실패:', error);
             alert('배경음악을 불러올 수 없습니다.');
+        },
+        onplay: function() {
+            isBgmPlaying = true;
+            $('#bgmBtn').addClass('playing').removeClass('paused');
+            console.log('BGM 재생 중');
+        },
+        onpause: function() {
+            isBgmPlaying = false;
+            $('#bgmBtn').removeClass('playing').addClass('paused');
+            console.log('BGM 정지됨');
+        }
+    });
+
+    // 사용자의 첫 번째 클릭/터치 시 자동 재생 시도
+    $(document).one('click touchstart', function() {
+        if (!autoplayAttempted && bgmSound) {
+            autoplayAttempted = true;
+            bgmSound.play();
+            console.log('사용자 인터랙션 후 BGM 자동 재생 시작');
         }
     });
 
     // BGM 컨트롤 버튼 클릭 이벤트 (jQuery)
-    $('#bgmBtn').on('click', function() {
+    $('#bgmBtn').on('click', function(e) {
+        e.stopPropagation(); // 이벤트 버블링 방지
         console.log('BGM 버튼 클릭됨');
 
         // 음악 파일이 설정되지 않은 경우 안내 메시지
@@ -355,20 +371,12 @@ $(document).ready(function() {
             return;
         }
 
-        var $btn = $('#bgmBtn');
-
         if (isBgmPlaying) {
             // 음악 정지
-            console.log('BGM 정지');
             bgmSound.pause();
-            $btn.removeClass('playing').addClass('paused');
-            isBgmPlaying = false;
         } else {
             // 음악 재생
-            console.log('BGM 재생');
             bgmSound.play();
-            $btn.addClass('playing').removeClass('paused');
-            isBgmPlaying = true;
         }
     });
 });
