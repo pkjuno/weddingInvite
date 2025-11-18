@@ -3,6 +3,9 @@ var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
 
+var bgmSound = null;
+var isBgmPlaying = false;
+
 images.forEach(function(src, i) {
     var t = document.createElement('div');
     t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
@@ -323,8 +326,6 @@ kakaomapLinks.forEach(function(link) {
 // ============================================
 
 $(document).ready(function() {
-    var bgmSound = null;
-    var isBgmPlaying = false;
 
     // Howler.js를 사용한 BGM 초기화
     bgmSound = new Howl({
