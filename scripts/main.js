@@ -3,23 +3,6 @@ var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
 
-// BGM 변수 
-var bgmSound = null;
-var isBgmPlaying = false;
-
-bgmSound = new Howl({
-    src: ['music/bgm.mp3'],  // 음악 파일 경로
-    loop: true,                       // 반복 재생
-    volume: 0.5,                      // 볼륨 (0.0 ~ 1.0)
-    onload: function() {
-        console.log('BGM 로드 완료');
-    },
-    onloaderror: function(id, error) {
-        console.error('BGM 로드 실패:', error);
-        alert('배경음악을 불러올 수 없습니다.');
-    }
-});
-
 images.forEach(function(src, i) {
     var t = document.createElement('div');
     t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
@@ -263,3 +246,53 @@ $("#findDestination_kakao").click(function(){
 //         window.open(kakaoMapUrl, '_blank');
 //     });
 // });
+
+// ============================================
+// BGM (Background Music) 기능
+// ============================================
+
+$(document).ready(function() {
+    var bgmSound = null;
+    var isBgmPlaying = false;
+
+    // Howler.js를 사용한 BGM 초기화
+    bgmSound = new Howl({
+        src: ['music/bgm.mp3'],  // 음악 파일 경로
+        loop: true,               // 반복 재생
+        volume: 0.5,              // 볼륨 (0.0 ~ 1.0)
+        onload: function() {
+            console.log('BGM 로드 완료');
+        },
+        onloaderror: function(id, error) {
+            console.error('BGM 로드 실패:', error);
+            alert('배경음악을 불러올 수 없습니다.');
+        }
+    });
+
+    // BGM 컨트롤 버튼 클릭 이벤트 (jQuery)
+    $('#bgmBtn').on('click', function() {
+        console.log('BGM 버튼 클릭됨');
+
+        // 음악 파일이 설정되지 않은 경우 안내 메시지
+        if (!bgmSound) {
+            alert('BGM 음악 파일이 설정되지 않았습니다.');
+            return;
+        }
+
+        var $btn = $('#bgmBtn');
+
+        if (isBgmPlaying) {
+            // 음악 정지
+            console.log('BGM 정지');
+            bgmSound.pause();
+            $btn.removeClass('playing').addClass('paused');
+            isBgmPlaying = false;
+        } else {
+            // 음악 재생
+            console.log('BGM 재생');
+            bgmSound.play();
+            $btn.addClass('playing').removeClass('paused');
+            isBgmPlaying = true;
+        }
+    });
+});
