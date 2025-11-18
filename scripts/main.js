@@ -183,12 +183,69 @@ function initMap() {
     marker.setMap(map);
 }
 
-// 길찾기 버튼
-document.getElementById('findDestination').addEventListener('click', function() {
+// 카카오맵 길찾기 버튼
+$("#findDestination_kakao").click(function(){
     window.open('https://map.kakao.com/?q=상암월드컵컨벤션', '_blank');
 });
 
 initMap();
+
+
+// ============================================
+// 네비게이션 앱 연동
+// ============================================
+
+// 목적지 정보
+var destination = {
+    name: '상암월드컵컨벤션',
+    address: '서울특별시 마포구 월드컵북로 402',
+    lat: 37.56842026526049,
+    lng: 126.89614545179921
+};
+
+// 네이버지도 길찾기
+var navermapLinks = document.querySelectorAll('.navermap');
+navermapLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 네이버지도 웹 URL (모바일/PC 모두 지원)
+        var naverUrl = 'https://map.naver.com/v5/search/' + encodeURIComponent(destination.name);
+        window.open(naverUrl, '_blank');
+    });
+});
+
+// 티맵 길찾기
+var tmapLinks = document.querySelectorAll('.tmap');
+tmapLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 티맵 URL Scheme (모바일 앱)
+        var tmapUrl = 'tmap://route?goalname=' + encodeURIComponent(destination.name) +
+                      '&goalx=' + destination.lng + '&goaly=' + destination.lat;
+
+        // 앱 실행 시도, 실패시 웹 페이지로 이동
+        window.location.href = tmapUrl;
+        setTimeout(function() {
+            // 앱이 설치되지 않은 경우 티맵 웹사이트로 이동
+            window.open('https://www.tmap.co.kr', '_blank');
+        }, 1500);
+    });
+});
+
+$("#findDestination_kakao").click(function(){
+    window.open('https://map.kakao.com/?q='+encodeURIComponent(destination.name), '_blank');
+})
+// 카카오맵 길찾기
+// var kakaomapLinks = document.querySelectorAll('.kakaomap');
+// kakaomapLinks.forEach(function(link) {
+//     link.addEventListener('click', function(e) {
+//         e.preventDefault();
+//         // 카카오맵 웹 URL
+//         var kakaoMapUrl = 'https://map.kakao.com/link/to/' + encodeURIComponent(destination.name) +
+//                           ',' + destination.lat + ',' + destination.lng;
+//         window.open(kakaoMapUrl, '_blank');
+//     });
+// });
 
 // ============================================
 // 네비게이션 앱 연동
@@ -265,68 +322,48 @@ kakaomapLinks.forEach(function(link) {
 // BGM (Background Music) 기능
 // ============================================
 
-// BGM 음악 파일 경로를 여기에 설정하세요
-// 예시: var bgmSound = new Howl({ src: ['music/wedding-bgm.mp3'], ... });
-// var bgmSound = null;
-// var isBgmPlaying = false;
+$(document).ready(function() {
+    var bgmSound = null;
+    var isBgmPlaying = false;
 
-// Howler.js를 사용한 BGM 초기화
-// 음악 파일이 준비되면 아래 주석을 해제하고 경로를 수정하세요
-/*
-bgmSound = new Howl({
-    src: ['music/wedding-bgm.mp3'],  // 음악 파일 경로 (music 폴더에 파일 추가 필요)
-    loop: true,                       // 반복 재생
-    volume: 0.5,                      // 볼륨 (0.0 ~ 1.0)
-    onload: function() {
-        console.log('BGM 로드 완료');
-    },
-    onloaderror: function(id, error) {
-        console.error('BGM 로드 실패:', error);
-    }
+    // Howler.js를 사용한 BGM 초기화
+    bgmSound = new Howl({
+        src: ['music/bgm.mp3'],  // 음악 파일 경로
+        loop: true,               // 반복 재생
+        volume: 0.5,              // 볼륨 (0.0 ~ 1.0)
+        onload: function() {
+            console.log('BGM 로드 완료');
+        },
+        onloaderror: function(id, error) {
+            console.error('BGM 로드 실패:', error);
+            alert('배경음악을 불러올 수 없습니다.');
+        }
+    });
+
+    // BGM 컨트롤 버튼 클릭 이벤트 (jQuery)
+    $('#bgmBtn').on('click', function() {
+        console.log('BGM 버튼 클릭됨');
+
+        // 음악 파일이 설정되지 않은 경우 안내 메시지
+        if (!bgmSound) {
+            alert('BGM 음악 파일이 설정되지 않았습니다.');
+            return;
+        }
+
+        var $btn = $('#bgmBtn');
+
+        if (isBgmPlaying) {
+            // 음악 정지
+            console.log('BGM 정지');
+            bgmSound.pause();
+            $btn.removeClass('playing').addClass('paused');
+            isBgmPlaying = false;
+        } else {
+            // 음악 재생
+            console.log('BGM 재생');
+            bgmSound.play();
+            $btn.addClass('playing').removeClass('paused');
+            isBgmPlaying = true;
+        }
+    });
 });
-*/
-
-/*
-// BGM 컨트롤 버튼 클릭 이벤트
-document.getElementById('bgmBtn').addEventListener('click', function() {
-    // 음악 파일이 설정되지 않은 경우 안내 메시지
-    if (!bgmSound) {
-        alert('BGM 음악 파일이 설정되지 않았습니다.\n\n설정 방법:\n1. music 폴더에 음악 파일 추가\n2. scripts/main.js 파일에서 BGM 코드 주석 해제\n3. 파일 경로 수정');
-        return;
-    }
-
-    var btn = document.getElementById('bgmBtn');
-
-    if (isBgmPlaying) {
-        // 음악 정지
-        bgmSound.pause();
-        btn.classList.remove('playing');
-        btn.classList.add('paused');
-        isBgmPlaying = false;
-    } else {
-        // 음악 재생
-        bgmSound.play();
-        btn.classList.add('playing');
-        btn.classList.remove('paused');
-        isBgmPlaying = true;
-    }
-});
-*/
-
-// 페이지 로드 시 자동 재생 (선택사항)
-// 주의: 최신 브라우저는 사용자 인터랙션 없이 자동 재생을 차단할 수 있습니다
-/*
-window.addEventListener('load', function() {
-    if (bgmSound) {
-        // 사용자가 페이지를 클릭하면 자동 재생 시작
-        document.body.addEventListener('click', function autoplay() {
-            if (!isBgmPlaying) {
-                bgmSound.play();
-                document.getElementById('bgmBtn').classList.add('playing');
-                isBgmPlaying = true;
-            }
-            document.body.removeEventListener('click', autoplay);
-        }, { once: true });
-    }
-});
-*/
