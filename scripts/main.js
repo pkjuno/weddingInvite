@@ -333,6 +333,11 @@ $(document).ready(function() {
         volume: 0.5,              // 볼륨 (0.0 ~ 1.0)
         onload: function() {
             console.log('BGM 로드 완료');
+            // 자동 재생 시작
+            bgmSound.play();
+            isBgmPlaying = true;
+            $('#bgmBtn').addClass('playing').removeClass('paused');
+            console.log('BGM 자동 재생 시작');
         },
         onloaderror: function(id, error) {
             console.error('BGM 로드 실패:', error);
