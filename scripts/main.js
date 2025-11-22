@@ -1,4 +1,4 @@
-var images = ['images/A06I6424.JPG', 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200', 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200', 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200', 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200', 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200'];
+var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706', 'images/A06I5801', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG'];
 var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
