@@ -1,4 +1,4 @@
-var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706', 'images/A06I5801', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG'];
+var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706.JPG', 'images/A06I5801.JPG', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG'];
 var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
