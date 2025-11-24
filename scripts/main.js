@@ -124,7 +124,13 @@ function shareKakao() {
             content: {
                 title: '박준호 ♥ 김보미 결혼합니다',
                 description: '2026년 3월 15일 일요일 오후 1시 50분\n상암 월드컵 컨벤션 임페리얼 홀',
+<<<<<<< HEAD
                 imageUrl: 'https://pkjuno.github.io/weddingInvite/images/test.png',
+=======
+                imageUrl: 'https://pkjuno.github.io/weddingInvite/images/A06I5871.JPG',
+                imageWidth: 800,
+                imageHeight: 400,
+>>>>>>> af29083 (카카오톡 공유 이미지 비율 800:400 (2:1) 설정)
                 link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
             },
             buttons: [
