@@ -4,28 +4,29 @@ var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
 
-images.forEach(function(src, i) {
-    var t = document.createElement('div');
-    t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
-    var img = document.createElement('img');
-    img.src = src;
-    img.alt = '사진' + (i+1);
-    t.appendChild(img);
-    t.onclick = function() {
-        currentIdx = i;
-        mainImg.src = src;
-        var thumbs = document.querySelectorAll('.gallery-thumb');
-        thumbs.forEach(function(th, idx) {
-            if (idx === i) {
-                th.classList.add('active');
-                th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            } else {
-                th.classList.remove('active');
-            }
-        });
-    };
-    thumbsDiv.appendChild(t);
-});
+// TODO ::: 보정 이미지 받으면 주석 해제 
+// images.forEach(function(src, i) {
+//     var t = document.createElement('div');
+//     t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
+//     var img = document.createElement('img');
+//     img.src = src;
+//     img.alt = '사진' + (i+1);
+//     t.appendChild(img);
+//     t.onclick = function() {
+//         currentIdx = i;
+//         mainImg.src = src;
+//         var thumbs = document.querySelectorAll('.gallery-thumb');
+//         thumbs.forEach(function(th, idx) {
+//             if (idx === i) {
+//                 th.classList.add('active');
+//                 th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+//             } else {
+//                 th.classList.remove('active');
+//             }
+//         });
+//     };
+//     thumbsDiv.appendChild(t);
+// });
 
 function updateDday() {
     var weddingDate = new Date('2026-03-15T13:50:00').getTime();
