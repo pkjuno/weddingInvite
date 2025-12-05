@@ -131,7 +131,7 @@ function shareKakao() {
             buttons: [
                 {
                     title: '초대장 보기',
-                    link: { mobileWebUrl: 'https://pkjuno.github.io/weddingInvite', 'https://pkjuno.github.io/weddingInvite' }
+                    link: { mobileWebUrl: 'https://pkjuno.github.io/weddingInvite', webUrl: 'https://pkjuno.github.io/weddingInvite' }
                 }
             ]
         });
