@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 var images = ['images/A06I6424.JPG', 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200', 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200', 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200', 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200', 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200'];
+=======
+>>>>>>> master
 //var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706.JPG', 'images/A06I5801.JPG', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG', 'images/outSide1.jpg','images/outSide2.jpg', 'images/outSide3.jpg'];
 var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
 
+<<<<<<< HEAD
 images.forEach(function(src, i) {
     var t = document.createElement('div');
     t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
@@ -27,6 +31,8 @@ images.forEach(function(src, i) {
     };
     thumbsDiv.appendChild(t);
 });
+=======
+>>>>>>> master
 // TODO ::: 보정 이미지 받으면 주석 해제 
 // images.forEach(function(src, i) {
 //     var t = document.createElement('div');
@@ -147,11 +153,14 @@ function shareKakao() {
             objectType: 'feed',
             content: {
                 title: '박준호 ♥ 김보미 결혼합니다',
+<<<<<<< HEAD
                 description: '2026년 3월 15일 일요일 오후 1시 50분\n상암 월드컵 컨벤션 임페리얼 홀',
                 imageUrl: 'https://pkjuno.github.io/weddingInvite/images/A06I5871.JPG',
                 imageWidth: 800,
                 imageHeight: 400,
                 link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
+=======
+>>>>>>> master
                 description: '2026년 3월 15일 일요일 오후 1시 40분\n상암 월드컵 컨벤션 임페리얼 홀',
                 imageUrl: 'https://pkjuno.github.io/weddingInvite/images/KHY_0482.JPG',
                 link: { mobileWebUrl: 'https://pkjuno.github.io/weddingInvite', webUrl: 'https://pkjuno.github.io/weddingInvite' }
@@ -159,7 +168,10 @@ function shareKakao() {
             buttons: [
                 {
                     title: '초대장 보기',
+<<<<<<< HEAD
                     link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
+=======
+>>>>>>> master
                     link: { mobileWebUrl: 'https://pkjuno.github.io/weddingInvite', webUrl: 'https://pkjuno.github.io/weddingInvite' }
                 }
             ]

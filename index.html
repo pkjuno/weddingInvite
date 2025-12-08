@@ -26,7 +26,7 @@
             </div>
             <div class="date-info">
                 <p>2026년 3월 15일 일요일</p>
-                <p class="date-main">오후 1시 50분</p>
+                <p class="date-main">오후 1시 40분</p>
                 <p>상암 월드컵 컨벤션 임페리얼 볼룸 홀</p>
             </div>
             <div class="dday-container">
@@ -69,10 +69,11 @@
     <section class="gallery">
         <h2 class="section-title">Gallery</h2>
         <div class="gallery-main-image" onclick="openModal()">
-            <img id="mainGalleryImg" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200" alt="Wedding">
+            <img id="mainGalleryImg" src="images/readyForGallery.png" alt="Wedding">
         </div>
-        <div class="gallery-thumbs" id="galleryThumbs"></div>
-        <p style="text-align: center; color: #8fbc8f; font-size: 0.85rem; margin-top: 1rem;">💡 사진을 클릭하면 크게 볼 수 있습니다</p>
+        <!-- TODO :::: 보정본 사진 받으면 OPEN -->
+        <!--<div class="gallery-thumbs" id="galleryThumbs"></div>
+        <p style="text-align: center; color: #8fbc8f; font-size: 0.85rem; margin-top: 1rem;">💡 사진을 클릭하면 크게 볼 수 있습니다</p> -->
     </section>
 
     <div class="modal" id="modal" onclick="closeModal(event)">
@@ -105,7 +106,14 @@
             <div class="transport-card">
                 <div class="transport-title">🚗 자차</div>
                 <div class="transport-desc">네비에 '상암 월드컵 컨벤션' 검색<br></div>
-                <div class="transport-desc">월드컵경기장 서측 1,2주차장 90분 무료<br>(홈플러스 주차장 무료주차 불가)</div>
+                <div class="transport-desc">월드컵경기장 서측 1,2주차장<br>(홈플러스 주차장 무료주차 불가)</div>
+            </div>
+            <div class="transport-card">
+                <div class="transport-title">참고사항</div>
+                <div class="transport-desc">차량등록 <br> - 축의대에서 차량 등록 후 출차(90분무료)</div>
+                <div class="transport-desc">추가시간 주차요금 10분당 300원 <br> - (경차·하이브리드·전기차 등 50%할인)</div>
+                <br>
+                <div class="transport-desc">*경기 또는 행사일 만차 시, 주차요원 안내에 따라 난지천공원, 평화의 공원 이용</div>
             </div>
             <div class="transport-card">
                 <div class="venue-name">상암 월드컵 컨벤션</div>
@@ -148,15 +156,15 @@
         <div class="contact-grid">
             <div class="contact-card">
                 <div class="contact-side">GROOM</div>
-                <div class="contact-person"><div class="contact-name">신랑 박준호</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01012345678')">📞</button><button class="icon-btn" onclick="sms('01012345678')">💬</button></div></div>
-                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">아버지 박정운</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01011111111')">📞</button></div></div>
-                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">어머니 정현숙</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01022222222')">📞</button></div></div>
+                <div class="contact-person"><div class="contact-name">신랑 박준호</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01099259541')">📞</button></div></div>
+                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">아버지 박정운</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01089599541')">📞</button></div></div>
+                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">어머니 정현숙</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01030360166')">📞</button></div></div>
             </div>
             <div class="contact-card">
                 <div class="contact-side">BRIDE</div>
-                <div class="contact-person"><div class="contact-name">신부 김보미</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01098765432')">📞</button><button class="icon-btn" onclick="sms('01098765432')">💬</button></div></div>
-                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">아버지 김윤석</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01033333333')">📞</button></div></div>
-                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">어머니 강명숙</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01044444444')">📞</button></div></div>
+                <div class="contact-person"><div class="contact-name">신부 김보미</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01062899700')">📞</button></div></div>
+                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">아버지 김윤석</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01040135355')">📞</button></div></div>
+                <div class="contact-person"><div class="contact-name" style="font-size: 0.85rem;">어머니 강명숙</div><div class="contact-btns"><button class="icon-btn" onclick="tel('01046275015')">📞</button></div></div>
             </div>
         </div>
     </section>
@@ -171,9 +179,9 @@
                 </div>
                 <div class="account-content">
                     <div class="account-items">
-                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">박준호</div><div class="account-num">카카오뱅크 3333-01-1234567</div></div><button class="copy-btn" onclick="copyAcc('3333-01-1234567', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">부 박정운</div><div class="account-num">국민은행 123-456-789012</div></div><button class="copy-btn" onclick="copyAcc('123-456-789012', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">모 정현숙</div><div class="account-num">신한은행 110-123-456789</div></div><button class="copy-btn" onclick="copyAcc('110-123-456789', this)">복사</button></div>
+                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">부 박정운</div><div class="account-num">우리은행 479-052679-02-001</div></div><button class="copy-btn" onclick="copyAcc('47905267902001', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">모 정현숙</div><div class="account-num">하나은행 371-910627-24307</div></div><button class="copy-btn" onclick="copyAcc('37191062724307', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">박준호</div><div class="account-num">신한은행 110-338-232836</div></div><button class="copy-btn" onclick="copyAcc('110338232836', this)">복사</button></div>
                     </div>
                 </div>
             </div>
@@ -184,9 +192,9 @@
                 </div>
                 <div class="account-content">
                     <div class="account-items">
-                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">김보미</div><div class="account-num">토스뱅크 1000-1234-5678</div></div><button class="copy-btn" onclick="copyAcc('1000-1234-5678', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">부 김윤석</div><div class="account-num">우리은행 1002-123-456789</div></div><button class="copy-btn" onclick="copyAcc('1002-123-456789', this)">복사</button></div>
-                        <div class="account-item"><div><div class="account-owner">모 강명숙</div><div class="account-num">NH농협 352-1234-5678-90</div></div><button class="copy-btn" onclick="copyAcc('352-1234-5678-90', this)">복사</button></div>
+                        <div class="account-item" style="margin-top:5%;"><div><div class="account-owner">부 김윤석</div><div class="account-num">기업은행 010-4013-5355</div></div><button class="copy-btn" onclick="copyAcc('01040135355', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">모 강명숙</div><div class="account-num">카카오 3333-17-3460-317</div></div><button class="copy-btn" onclick="copyAcc('3333173460317', this)">복사</button></div>
+                        <div class="account-item"><div><div class="account-owner">김보미</div><div class="account-num">기업은행 010-6289-9700</div></div><button class="copy-btn" onclick="copyAcc('01062899700', this)">복사</button></div>
                     </div>
                 </div>
             </div>
@@ -197,7 +205,7 @@
         <h2 class="section-title">초대장 공유하기</h2>
         <div class="share-btns">
             <button class="btn" onclick="shareKakao()">카카오톡 공유</button>
-            <button class="btn" onclick="copyLink()">링크 복사</button>
+            <!--<button class="btn" onclick="copyLink()">링크 복사</button> -->
         </div>
     </section>
     </div>
