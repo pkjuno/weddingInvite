@@ -29,7 +29,8 @@ var thumbsDiv = document.getElementById('galleryThumbs');
 // });
 
 function updateDday() {
-    var weddingDate = new Date('2026-03-15T13:50:00').getTime();
+    // 모바일 Safari 호환 날짜 형식
+    var weddingDate = new Date(2026, 2, 15, 13, 50, 0).getTime(); // 월은 0부터 시작 (2 = 3월)
     function update() {
         var now = new Date().getTime();
         var distance = weddingDate - now;
@@ -44,15 +45,27 @@ function updateDday() {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
+
+        var daysEl = document.getElementById('days');
+        var hoursEl = document.getElementById('hours');
+        var minutesEl = document.getElementById('minutes');
+        var secondsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.textContent = days;
+        if (hoursEl) hoursEl.textContent = hours;
+        if (minutesEl) minutesEl.textContent = minutes;
+        if (secondsEl) secondsEl.textContent = seconds;
     }
     update();
     setInterval(update, 1000);
 }
-updateDday();
+
+// DOM이 로드된 후 실행
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateDday);
+} else {
+    updateDday();
+}
 
 function updateModalCounter() {
     document.getElementById('modalCounter').textContent = (currentIdx + 1) + ' / ' + images.length;
@@ -330,61 +343,105 @@ kakaomapLinks.forEach(function(link) {
 // BGM (Background Music) 기능
 // ============================================
 
-$(document).ready(function() {
-    var bgmSound = null;
-    var isBgmPlaying = false;
-    var autoplayAttempted = false;
+// jQuery 체크 및 BGM 초기화
+(function() {
+    console.log('BGM 초기화 시작');
+    console.log('jQuery 로드 여부:', typeof jQuery !== 'undefined');
+    console.log('Howler 로드 여부:', typeof Howl !== 'undefined');
 
-    // Howler.js를 사용한 BGM 초기화
-    bgmSound = new Howl({
-        src: ['music/bgm.mp3'],  // 음악 파일 경로
-        loop: true,               // 반복 재생
-        volume: 0.5,              // 볼륨 (0.0 ~ 1.0)
-        onload: function() {
-            console.log('BGM 로드 완료');
-        },
-        onloaderror: function(id, error) {
-            console.error('BGM 로드 실패:', error);
-            alert('배경음악을 불러올 수 없습니다.');
-        },
-        onplay: function() {
-            isBgmPlaying = true;
-            $('#bgmBtn').addClass('playing').removeClass('paused');
-            console.log('BGM 재생 중');
-        },
-        onpause: function() {
-            isBgmPlaying = false;
-            $('#bgmBtn').removeClass('playing').addClass('paused');
-            console.log('BGM 정지됨');
+    function initBGM() {
+        console.log('initBGM 함수 실행');
+        var bgmSound = null;
+        var isBgmPlaying = false;
+        var autoplayAttempted = false;
+
+        // Howler.js를 사용한 BGM 초기화
+        try {
+            bgmSound = new Howl({
+                src: ['music/bgm.mp3'],  // 음악 파일 경로
+                loop: true,               // 반복 재생
+                volume: 0.5,              // 볼륨 (0.0 ~ 1.0)
+                html5: true,              // 모바일 호환성 향상
+                onload: function() {
+                    console.log('BGM 로드 완료');
+                },
+                onloaderror: function(id, error) {
+                    console.error('BGM 로드 실패:', id, error);
+                },
+                onplay: function() {
+                    isBgmPlaying = true;
+                    var btn = document.getElementById('bgmBtn');
+                    if (btn) {
+                        btn.classList.add('playing');
+                        btn.classList.remove('paused');
+                    }
+                    console.log('BGM 재생 중');
+                },
+                onpause: function() {
+                    isBgmPlaying = false;
+                    var btn = document.getElementById('bgmBtn');
+                    if (btn) {
+                        btn.classList.remove('playing');
+                        btn.classList.add('paused');
+                    }
+                    console.log('BGM 정지됨');
+                }
+            });
+        } catch(error) {
+            console.error('Howl 초기화 오류:', error);
         }
-    });
 
-    // 사용자의 첫 번째 클릭/터치 시 자동 재생 시도
-    $(document).one('click touchstart', function() {
-        if (!autoplayAttempted && bgmSound) {
-            autoplayAttempted = true;
-            bgmSound.play();
-            console.log('사용자 인터랙션 후 BGM 자동 재생 시작');
-        }
-    });
+        // 사용자의 첫 번째 클릭/터치 시 자동 재생 시도
+        document.addEventListener('click', function autoplayHandler() {
+            if (!autoplayAttempted && bgmSound) {
+                autoplayAttempted = true;
+                console.log('사용자 인터랙션 감지, BGM 자동 재생 시도');
+                bgmSound.play();
+            }
+        }, { once: true });
 
-    // BGM 컨트롤 버튼 클릭 이벤트 (jQuery)
-    $('#bgmBtn').on('click', function(e) {
-        e.stopPropagation(); // 이벤트 버블링 방지
-        console.log('BGM 버튼 클릭됨');
+        document.addEventListener('touchstart', function autoplayTouchHandler() {
+            if (!autoplayAttempted && bgmSound) {
+                autoplayAttempted = true;
+                console.log('터치 인터랙션 감지, BGM 자동 재생 시도');
+                bgmSound.play();
+            }
+        }, { once: true });
 
-        // 음악 파일이 설정되지 않은 경우 안내 메시지
-        if (!bgmSound) {
-            alert('BGM 음악 파일이 설정되지 않았습니다.');
-            return;
-        }
+        // BGM 컨트롤 버튼 클릭 이벤트
+        var bgmBtn = document.getElementById('bgmBtn');
+        if (bgmBtn) {
+            console.log('BGM 버튼 찾음');
+            bgmBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('BGM 버튼 클릭됨');
 
-        if (isBgmPlaying) {
-            // 음악 정지
-            bgmSound.pause();
+                // 음악 파일이 설정되지 않은 경우 안내 메시지
+                if (!bgmSound) {
+                    console.error('bgmSound가 없음');
+                    alert('BGM 음악 파일이 설정되지 않았습니다.');
+                    return;
+                }
+
+                if (isBgmPlaying) {
+                    // 음악 정지
+                    console.log('BGM 정지 시도');
+                    bgmSound.pause();
+                } else {
+                    // 음악 재생
+                    console.log('BGM 재생 시도');
+                    bgmSound.play();
+                }
+            });
         } else {
-            // 음악 재생
-            bgmSound.play();
+            console.error('BGM 버튼을 찾을 수 없음');
         }
-    });
-});
+    }
+
+    // DOM 로드 후 실행
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initBGM);
+    } else {
+        initBGM();
+    }
+})();
