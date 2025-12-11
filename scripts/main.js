@@ -1,32 +1,49 @@
 //var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706.JPG', 'images/A06I5801.JPG', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG', 'images/outSide1.jpg','images/outSide2.jpg', 'images/outSide3.jpg'];
-var images = ['images/readyForGallery.png'];
+var images = 
+    [
+        'images/ga_1.jpg', 
+        'images/ga_2.jpg', 
+        'images/ga_3.jpg', 
+        'images/ga_4.jpg', 
+        'images/ga_5.jpg', 
+        'images/ga_6.jpg', 
+        'images/ga_7.jpg', 
+        'images/ga_8.jpg', 
+        'images/ga_9.jpg', 
+        'images/ga_10.jpg', 
+        'images/ga_11.jpg', 
+        'images/ga_12.jpg',
+        'images/ga_13.jpg',
+        'images/ga_14.jpg' 
+    ];
+//var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
 var mainImg = document.getElementById('mainGalleryImg');
 var thumbsDiv = document.getElementById('galleryThumbs');
 
 // TODO ::: 보정 이미지 받으면 주석 해제 
-// images.forEach(function(src, i) {
-//     var t = document.createElement('div');
-//     t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
-//     var img = document.createElement('img');
-//     img.src = src;
-//     img.alt = '사진' + (i+1);
-//     t.appendChild(img);
-//     t.onclick = function() {
-//         currentIdx = i;
-//         mainImg.src = src;
-//         var thumbs = document.querySelectorAll('.gallery-thumb');
-//         thumbs.forEach(function(th, idx) {
-//             if (idx === i) {
-//                 th.classList.add('active');
-//                 th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-//             } else {
-//                 th.classList.remove('active');
-//             }
-//         });
-//     };
-//     thumbsDiv.appendChild(t);
-// });
+images.forEach(function(src, i) {
+    var t = document.createElement('div');
+    t.className = i === 0 ? 'gallery-thumb active' : 'gallery-thumb';
+    var img = document.createElement('img');
+    img.src = src;
+    img.alt = '사진' + (i+1);
+    t.appendChild(img);
+    t.onclick = function() {
+        currentIdx = i;
+        mainImg.src = src;
+        var thumbs = document.querySelectorAll('.gallery-thumb');
+        thumbs.forEach(function(th, idx) {
+            if (idx === i) {
+                th.classList.add('active');
+                th.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+                th.classList.remove('active');
+            }
+        });
+    };
+    thumbsDiv.appendChild(t);
+});
 
 function updateDday() {
     var weddingDate = new Date('2026-03-15T13:50:00').getTime();
