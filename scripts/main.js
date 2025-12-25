@@ -1,6 +1,7 @@
 //var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706.JPG', 'images/A06I5801.JPG', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG', 'images/outSide1.jpg','images/outSide2.jpg', 'images/outSide3.jpg'];
 var images = 
     [
+        'images/ThumbNail.jpg',
         'images/ga_1.jpg', 
         'images/ga_2.jpg', 
         'images/ga_3.jpg', 
