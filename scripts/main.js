@@ -18,7 +18,8 @@ var images =
         'images/ga_14.jpg',
         'images/ga_15.jpg',
         'images/ga_16.jpg',
-        'images/ga_17.jpg' 
+        'images/ga_17.jpg',
+        'images/ga_18.jpg' 
     ];
 //var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
