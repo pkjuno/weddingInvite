@@ -5,8 +5,8 @@ var images =
         'images/ga_2.jpg', 
         'images/ga_3.jpg', 
         'images/ga_4.jpg', 
-        'images/ga_5.jpg', 
-        'images/ga_6.jpg', 
+        //'images/ga_5.jpg',
+        'images/ga_6.jpg',
         'images/ga_7.jpg', 
         'images/ga_8.jpg', 
         'images/ga_9.jpg', 
@@ -14,7 +14,10 @@ var images =
         'images/ga_11.jpg', 
         'images/ga_12.jpg',
         'images/ga_13.jpg',
-        'images/ga_14.jpg' 
+        'images/ga_14.jpg',
+        'images/ga_15.jpg',
+        'images/ga_16.jpg',
+        'images/ga_17.jpg' 
     ];
 //var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
@@ -142,7 +145,7 @@ function shareKakao() {
             content: {
                 title: '박준호 ♥ 김보미 결혼합니다',
                 description: '2026년 3월 15일 일요일 오후 1시 40분\n상암 월드컵 컨벤션 임페리얼 홀',
-                imageUrl: 'https://pkjuno.github.io/weddingInvite/images/KHY_0482.JPG',
+                imageUrl: 'https://pkjuno.github.io/weddingInvite/images/ThumbNail.jpg',
                 link: { mobileWebUrl: 'https://pkjuno.github.io/weddingInvite', webUrl: 'https://pkjuno.github.io/weddingInvite' }
             },
             buttons: [
