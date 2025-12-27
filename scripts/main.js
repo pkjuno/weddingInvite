@@ -2,7 +2,7 @@
 var images = 
     [
         'images/ga_1.jpg', 
-        'images/ga_2.jpg', 
+        //'images/ga_2.jpg', 
         'images/ga_3.jpg', 
         'images/ga_4.jpg', 
         'images/ga_5.jpg',
