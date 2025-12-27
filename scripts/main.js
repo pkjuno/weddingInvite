@@ -22,7 +22,7 @@ var images =
         'images/ga_18.jpg',
         'images/ga_19.jpg',
         'images/ga_20.jpg',
-        'images/ga_21.jpg'
+        'images/ga_21.JPG'
     ];
 //var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
