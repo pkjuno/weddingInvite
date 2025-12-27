@@ -1,7 +1,6 @@
 //var images = ['images/A06I6424.JPG', 'images/A06I5339.JPG', 'images/A06I5706.JPG', 'images/A06I5801.JPG', 'images/A06I5871.JPG', 'images/A06I6052.JPG', 'images/A06I6250.JPG', 'images/outSide1.jpg','images/outSide2.jpg', 'images/outSide3.jpg'];
 var images = 
     [
-        'images/ga_0.jpg',
         'images/ga_1.jpg', 
         'images/ga_2.jpg', 
         'images/ga_3.jpg', 
@@ -22,7 +21,8 @@ var images =
         'images/ga_18.jpg',
         'images/ga_19.jpg',
         'images/ga_20.jpg',
-        'images/ga_21.JPG'
+        'images/ga_21.JPG',
+        'images/ga_22.jpg'
     ];
 //var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
