@@ -31,9 +31,9 @@ var images =
         'images/ga_20_6.jpg',
         'images/ga_20_7.jpg',
         'images/ga_21.JPG',
-        'images/ga_22.jpg',
-        'images/ga_23.jpg',
-        'images/ga_24.jpg'
+        'images/ga_22.jpg'
+        //'images/ga_23.jpg',
+        //'images/ga_24.jpg'
     ];
 //var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
