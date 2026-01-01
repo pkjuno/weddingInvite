@@ -7,7 +7,8 @@ var images =
         'images/ga_4.jpg', 
         'images/ga_5.jpg',
         'images/ga_6.jpg',
-        'images/ga_7.jpg', 
+        'images/ga_7.jpg',
+        'images/ga_7_1.jpg', 
         'images/ga_8.jpg', 
         'images/ga_9.jpg', 
         'images/ga_10.jpg', 
@@ -16,13 +17,16 @@ var images =
         'images/ga_13.jpg',
         'images/ga_14.jpg',
         'images/ga_15.jpg',
+        'images/ga_15_1.jpg',
         'images/ga_16.jpg',
         'images/ga_17.jpg',
         'images/ga_18.jpg',
         'images/ga_19.jpg',
         'images/ga_20.jpg',
         'images/ga_21.JPG',
-        'images/ga_22.jpg'
+        'images/ga_22.jpg',
+        'images/ga_23.jpg',
+        'images/ga_24.jpg'
     ];
 //var images = ['images/readyForGallery.png'];
 var currentIdx = 0;
