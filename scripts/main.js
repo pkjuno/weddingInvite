@@ -33,8 +33,7 @@ var images =
         'images/img_30.jpg',
         'images/img_31.jpg',
         'images/img_32.jpg',
-        'images/img_33.jpg',
-        'images/img_34.jpg'
+        'images/img_33.jpg'
         // 'https://lh3.google.com/d/1cqqt7Q0WBxculkv93Mp7ntL3Ol9MkWQd',
         // 'https://lh3.google.com/d/1sEOmfl4KFRDQ7UQAGDKkBnt4ai_8vtrb',
         // 'https://lh3.google.com/d/1s-zb3iWS5JKIxWoUXiV79q9BPLANISwQ',
