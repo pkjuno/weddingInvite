@@ -195,7 +195,7 @@ function shareKakao() {
             content: {
                 title: '박준호 ♥ 김보미 결혼합니다',
                 description: '2026년 3월 15일 일요일 오후 1시 40분\n상암 월드컵 컨벤션 임페리얼 홀',
-                imageUrl: 'https://pkjuno.github.io/weddinginvite/images/img_33.jpg',
+                imageUrl: 'https://pkjuno.github.io/weddinginvite/images/og-image-2.jpg',
                 link: { mobileWebUrl: 'https://pkjuno.github.io/weddingInvite', webUrl: 'https://pkjuno.github.io/weddingInvite' }
             },
             buttons: [
